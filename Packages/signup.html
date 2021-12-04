@@ -1,0 +1,184 @@
+<html>
+<head>
+    <title>
+         Validation
+    </title>
+</head>
+<body>
+    <style>
+        * {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+        }
+        body {
+           background-image: url('images/images.jpeg');
+         background-size: 100% 100%;
+        }
+        h1 {
+            color: palevioletred;
+        }
+        table#title 
+		{
+            
+            font-size:medium;     
+            padding: 30px;
+            width: 50%;
+            background-color:transparent;
+            
+        }
+        table#info 
+		{
+            
+            color: white;
+            padding: 30px;
+            width: 50%;
+            font-size:20px;
+            padding-bottom: 15px; border-radius: 4px;
+        }
+
+        input[type=text] {
+            width:80%;
+          border-style: double;
+          padding:5px;
+          font-size:18px; border-color: brown; background-color: darkgrey;border-radius: 4px;
+        }
+        input[type=email] {
+            width:80%;
+          border-style: double;
+          padding:5px;
+          font-size:18px;border-color: brown; background-color: darkgrey; border-radius: 4px;
+        }
+        input[type=password] {
+            width:80%;
+          border-style: double;
+          padding:5px;
+          font-size:18px;border-color: brown; background-color: darkgrey; border-radius: 4px;
+        }
+        select {
+            width:80%; 
+          border-style: double;
+          padding:5px;
+          font-size:18px;border-color: brown; background-color: darkgrey; border-radius: 4px;
+        }
+        input[type=submit] {
+            padding:5px;
+          font-size:20px;
+          border-style: solid;
+          width:100px;
+          color:white;
+          background-color:rgba(167,210,62,255); border-radius: 4px;
+        }
+        input[type=submit]:hover {
+            background-color: #7ac8f8; border-radius: 4px;
+        }
+        input[type=text]:focus {
+            background-color: #FFFFFF; border-radius: 4px;
+        }
+        input[type=email]:focus {
+            background-color: #FFFFFF; border-radius: 4px;
+        }
+        input[type=password]:focus {
+            background-color: #FFFFFF; border-radius: 4px;
+        }
+
+    </style>
+    <script type="text/javascript">
+        
+        function validate() {
+            var password = form1.Password.value;
+            var confirmpassword = form1.PasswordCheck.value;
+            var pincode = form1.Pincode.value;
+            var mobile = form1.Number.value;
+            var passcheck = /^(?=.*\d)(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,15}$/;
+            var pincheck = /^[0-9]{6,6}$/;
+            var mobilecheck = /^[0-9]{10,10}$/;
+            
+            if (!mobile.match(mobilecheck))
+                alert("Please Enter a Valid Mobile Number");
+            
+            if (password != confirmpassword)
+                alert("The Password doesn't match");
+            
+            if (!pincode.match(pincheck))
+                alert("Please Enter a Valid Pincode and Address");
+
+            if (!password.match(passcheck))
+                alert("The Password must be atleast 8 digits long and should contain atleast 1 number and special character");
+                
+            else
+                alert("Details Have Been Successfully Saved");
+        }
+
+    </script>
+    
+    
+    <form name="form1" action="Task-8" target="_blank">
+        <table id="title" >
+            <tr>
+                <td style="text-align: center; font-size: 2em; "><b><u>REGISTRATION FORM</b></u></td>
+            </tr>
+        </table>
+        <table  id="info" style="width:50%;">
+            <tr>
+                <td >Firstname:</td>
+                <td><input type="text" name="Name" id="inputName" placeholder="Enter First Name" max="100" size="40" required></td>
+            </tr>
+            <tr>
+                <td >Lastname:</td>
+                <td><input type="text" name="Name" id="inputName" placeholder="Enter Last Name" max="100" size="40" required></td>
+            </tr>
+            <tr>
+                <td >Gender:</td>
+                <td><input type="radio" id="inputName"  name="Answer" size="20px" required> Male
+                <input type="radio" id="inputName"  name="Answer" size="20px" required> Female
+                </td>
+            </tr>
+            <tr>
+                <td >Email:</td>
+                <td><input type="email" name="Email" placeholder="Enter E-mail" id="inputEmail" max="100" size="40" required></td>
+            </tr>
+            <tr>
+                <td >Contact Number:</td>
+                <td><input type="text" name="Number" placeholder="Enter contact number" id="inputNumber" max="100" size="40" required></td>
+            </tr>
+            <tr>
+                <td >Password:</td>
+                <td><input type="password" name="Password"  placeholder="Enter password" id="inputPass" max="100" size="40" required></td>
+            </tr>
+            <tr>
+                <td >Confirm Password:</td>
+                <td><input type="password" name="PasswordCheck" id="inputPassCheck" max="100" size="40" required></td>
+            </tr>
+            <tr>
+                <td >Choose your Country:</td>
+                <td><select name= "Country" required>
+                <option> Country </option>
+                <option>USA</option>
+                <option> INDIA</option>
+                <option> MEXICO</option>
+                <option>UK</option>
+                <option> JAPAN</option>
+                <option>AUSTRALIA</option>
+            </select><br><br></td>
+            </tr>
+            <tr>
+                <td >Address:</td>
+                <td><input type="text" name="Address" id="inputAddress"  placeholder="Enter Address"required></td>
+            </tr>
+            <tr>
+                <td >Pincode:</td>
+                <td><input type="text" name="Pincode" id="inputPincode"  placeholder="Pincode"required></td>
+            </tr>
+             <tr>
+                <td>
+                <input type="checkbox" name="" value="" required>I agreed to terms and conditions </td>
+            </tr>
+            
+            <tr>
+                <td colspan="2" align="center"><input type="submit" onclick="validate()"></td>
+            </tr>
+            
+        </table>
+    </form>
+</body>
+
+</html>
